@@ -32,13 +32,13 @@ struct Transaction {
     
     var merchant: Merchant
 
-    let notes: String
+    var notes: String
 
     let settled: Date
     
 }
 
-extension Transactions: Decodable {
+extension Transactions: Codable {
 
     init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject] else { return nil }
@@ -58,7 +58,7 @@ extension Transactions: Decodable {
 
 }
 
-extension Transaction: Decodable {
+extension Transaction: Codable {
 
     init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject] else { return nil }
@@ -73,7 +73,7 @@ extension Transaction: Decodable {
         guard let currency = JSON["currency"] as? String else { return nil }
         
         self.account_balance = account_balance
-        self.amount = amount.formatToCurrencyString()
+        self.amount = amount.formatTo(currency: currency)
         do {
             self.created = try created.formatISOStringToDate()
             self.settled = try settled.formatISOStringToDate()
@@ -90,5 +90,6 @@ extension Transaction: Decodable {
         }
         self.currency = currency
     }
+    
 
 }

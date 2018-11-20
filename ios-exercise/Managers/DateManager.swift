@@ -35,6 +35,32 @@ class DataManager {
             }.resume()
     }
     
+    func updateTransactionData(transaction: Transaction) {
+        let url = baseURL.appendingPathComponent("transactions")
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        do {
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(transaction)
+            request.httpBody = try JSONSerialization.data(withJSONObject: jsonData, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+        }
+        task.resume()
+    }
+    
     func balanceData(completion: @escaping BalanceDataCompletion) {
         let url = baseURL.appendingPathComponent("balance")
         

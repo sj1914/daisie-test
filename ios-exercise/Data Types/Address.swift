@@ -30,7 +30,7 @@ struct Address: CustomStringConvertible {
     
 }
 
-extension Address: Decodable {
+extension Address: Codable {
     
     init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject] else { return nil }

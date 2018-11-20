@@ -26,7 +26,7 @@ struct Merchant {
     
 }
 
-extension Merchant: Decodable {
+extension Merchant: Codable {
     
     init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject] else { return nil }

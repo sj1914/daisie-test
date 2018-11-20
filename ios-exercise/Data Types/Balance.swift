@@ -25,7 +25,7 @@ extension Balance: Decodable {
         guard let currency = JSON["currency"] as? String else { return nil }
         guard let spent_today = JSON["spent_today"] as? Double else { return nil }
         
-        self.balance = balance.formatToCurrencyString()
+        self.balance = balance.formatTo(currency: currency)
         self.currency = currency
         self.spent_today = spent_today
     }

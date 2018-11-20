@@ -19,6 +19,7 @@
 		334C23C821A1AAD600BC16C0 /* DetailedTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C23C721A1AAD600BC16C0 /* DetailedTransactionViewController.swift */; };
 		334C23CB21A1B92D00BC16C0 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C23CA21A1B92D00BC16C0 /* StringUtility.swift */; };
 		334C23CD21A1CF0C00BC16C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C23CC21A1CF0C00BC16C0 /* User.swift */; };
+		33C0DD5C21A361AD00DB9262 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0DD5B21A361AD00DB9262 /* AddMoneyViewController.swift */; };
 		6904CD46217DD0050009642A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD45217DD0050009642A /* AppDelegate.swift */; };
 		6904CD48217DD0050009642A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD47217DD0050009642A /* HomeViewController.swift */; };
 		6904CD4A217DD0050009642A /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD49217DD0050009642A /* CardViewController.swift */; };
@@ -60,6 +61,7 @@
 		334C23C721A1AAD600BC16C0 /* DetailedTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTransactionViewController.swift; sourceTree = "<group>"; };
 		334C23CA21A1B92D00BC16C0 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		334C23CC21A1CF0C00BC16C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		33C0DD5B21A361AD00DB9262 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
 		6904CD42217DD0050009642A /* ios-exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-exercise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6904CD45217DD0050009642A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6904CD47217DD0050009642A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				6904CD47217DD0050009642A /* HomeViewController.swift */,
 				6904CD49217DD0050009642A /* CardViewController.swift */,
 				334C23C721A1AAD600BC16C0 /* DetailedTransactionViewController.swift */,
+				33C0DD5B21A361AD00DB9262 /* AddMoneyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				TargetAttributes = {
 					6904CD41217DD0050009642A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					6904CD57217DD0060009642A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -346,6 +350,7 @@
 				334C23C621A1A68B00BC16C0 /* TabViewController.swift in Sources */,
 				334C23B321A0449300BC16C0 /* Balance.swift in Sources */,
 				6904CD48217DD0050009642A /* HomeViewController.swift in Sources */,
+				33C0DD5C21A361AD00DB9262 /* AddMoneyViewController.swift in Sources */,
 				334C23C221A19F8700BC16C0 /* Address.swift in Sources */,
 				334C23CB21A1B92D00BC16C0 /* StringUtility.swift in Sources */,
 				334C23BE21A1938A00BC16C0 /* Configuration.swift in Sources */,
@@ -518,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67A28FJD7T;
 				INFOPLIST_FILE = "ios-exercise/Info.plist";
@@ -527,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.daisie.ios-exercise";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67A28FJD7T;
 				INFOPLIST_FILE = "ios-exercise/Info.plist";

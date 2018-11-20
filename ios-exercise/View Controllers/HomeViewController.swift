@@ -16,10 +16,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupTableView()
         self.fetchTransactionData()
         self.fetchBalanceData()
-        self.setupTableView()
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func setupTableView() {
@@ -34,22 +42,6 @@ class HomeViewController: UIViewController {
         fetchTransactionData()
         fetchBalanceData()
     }
-    
-//    private func groupTransactionsDaily(transactions: [Transaction]) {
-//        var transactionsDaily: [Date : [Transaction]] = [:]
-//
-//        for transaction in transactions {
-//            let dateWithoutTime = Calendar.current.startOfDay(for: transaction.created)
-//            if var value = transactionsDaily[dateWithoutTime] {
-//                value.append(transaction)
-//                transactionsDaily.updateValue(value, forKey: dateWithoutTime)
-//            } else {
-//                transactionsDaily[dateWithoutTime] = [transaction]
-//            }
-//        }
-//        self.transactionsDaily = transactionsDaily
-//        //need to sort by time somewhere
-//    }
     
     private func groupTransactionsDaily(transactions: [Transaction]) -> [(Date, [Transaction])] {
         var transactionsDaily: [Date : [Transaction]] = [:]
@@ -70,7 +62,6 @@ class HomeViewController: UIViewController {
         }
         fullySortedTransactions.sort() {$0.0 > $1.0}
         return fullySortedTransactions
-        //need to sort by time somewhere
     }
     
     private func fetchTransactionData() {
@@ -139,29 +130,17 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.detailedTransactionView = storyboard.instantiateViewController(withIdentifier: "DetailedTransactionView") as? DetailedTransactionViewController
-        let navigationViewController = UINavigationController(rootViewController: self.detailedTransactionView)
-        navigationViewController.navigationBar.barStyle = UIBarStyle.default
-        self.detailedTransactionView.title = "Details"
-        self.detailedTransactionView.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction))
        
         let transactions = self.transactionsDaily[indexPath.section].transactions
         let transaction = transactions[indexPath.row]
         self.detailedTransactionView.transaction = transaction
         self.detailedTransactionView.title = "\(transaction.created.formatToString()) \(transaction.time)"
         
-        self.present(navigationViewController, animated: true) {
-//            self.detailedTransactionView.show(transaction: transaction)
+        if let navigator = self.tabBarController?.viewControllers?[0] as? UINavigationController {
+            navigator.pushViewController(self.detailedTransactionView, animated: true)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    @IBAction func backAction(_ sender: UIButton) {
-        self.detailedTransactionView.dismiss()
-    }
-    
-    func setupNavView() {
-        
     }
 
 }
