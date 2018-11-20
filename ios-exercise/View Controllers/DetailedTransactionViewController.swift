@@ -12,6 +12,8 @@ class DetailedTransactionViewController: UIViewController {
     
     @IBOutlet weak var merchantLogo: UIImageView!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var categoryLabel: UIView!
     @IBOutlet weak var editNoteButton: UIButton!
     @IBOutlet weak var noteField: UITextField!
@@ -34,6 +36,9 @@ class DetailedTransactionViewController: UIViewController {
     }
     
     func setupView() {
+        self.contentView.layer.masksToBounds = true
+        self.contentView.layer.cornerRadius = 10.0
+        self.backgroundView.backgroundColor = UIColor(displayP3Red: 94/255, green: 174/255, blue: 205/255, alpha: 0.5)
         self.spent.text = String(self.transaction.amount)
         self.merchant.text = self.transaction.merchant.name
         self.address.text = String(describing: self.transaction.merchant.address)
@@ -42,13 +47,15 @@ class DetailedTransactionViewController: UIViewController {
             if let imageURL = self.transaction.merchant.logoURL {
                 let imageData = try Data(contentsOf: imageURL)
                 let image = UIImage(data: imageData)!
-                self.merchantLogo.image = self.cropToBounds(image: image, width: 50, height: 50)
+                self.merchantLogo.image = cropToBounds(image: image, width: 50, height: 50)
             }
         } catch {
             
         }
         self.buildCategoryLabel()
         self.noteField.text = self.transaction.notes
+        self.merchantLogo.layer.masksToBounds = true
+        self.merchantLogo.layer.cornerRadius = 4.0
     }
     
     func buildCategoryLabel() {
@@ -61,44 +68,6 @@ class DetailedTransactionViewController: UIViewController {
         self.categoryName.text = name
         self.categoryLabel.layer.cornerRadius = 4.0
         self.categoryLabel.layer.masksToBounds = true
-    }
-    
-    func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
-        
-        let cgimage = image.cgImage!
-        let contextImage: UIImage = UIImage(cgImage: cgimage)
-        let contextSize: CGSize = contextImage.size
-        var posX: CGFloat = 0.0
-        var posY: CGFloat = 0.0
-        var cgwidth: CGFloat = CGFloat(width)
-        var cgheight: CGFloat = CGFloat(height)
-        
-        // See what size is longer and create the center off of that
-        if contextSize.width > contextSize.height {
-            posX = ((contextSize.width - contextSize.height) / 2)
-            posY = 0
-            cgwidth = contextSize.height
-            cgheight = contextSize.height
-        } else {
-            posX = 0
-            posY = ((contextSize.height - contextSize.width) / 2)
-            cgwidth = contextSize.width
-            cgheight = contextSize.width
-        }
-        
-        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
-        
-        // Create bitmap image from context using the rect
-        let imageRef: CGImage = cgimage.cropping(to: rect)!
-        
-        // Create a new image based on the imageRef and rotate back to the original orientation
-        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
-        
-        return image
-    }
-    
-    func dismiss() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     func getCategoryAssets(category: String) -> (icon: UIImage, name: String) {

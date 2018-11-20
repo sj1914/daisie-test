@@ -48,6 +48,8 @@ class AddMoneyViewController: UIViewController {
     }
     
     @IBAction func increaseAmount(_ sender: Any) {
+        self.decreaseButton.isUserInteractionEnabled = true
+        self.decreaseButton.backgroundColor = UIColor(displayP3Red: 77/255, green: 154/255, blue: 172/255, alpha: 1)
         self.amountToAdd = self.amountToAdd + 10
         self.setAmountLabel()
     }

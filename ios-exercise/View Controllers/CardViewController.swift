@@ -32,7 +32,7 @@ class CardViewController: UIViewController {
         }
     }
 
-    @IBAction func showAddMoneyView(_ sender: Any) {
+    @IBAction func showAddMoneyView(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.addMoneyView = storyboard.instantiateViewController(withIdentifier: "AddMoneyView") as? AddMoneyViewController
         self.addMoneyView.title = "Add Money"

@@ -13,7 +13,8 @@ class TransactionTableViewCell: UITableViewCell {
         do {
             if let imageURL = transaction.merchant.logoURL {
                 let imageData = try Data(contentsOf: imageURL)
-                self.transactionImage.image = UIImage(data: imageData)
+                let image = UIImage(data: imageData)!
+                self.transactionImage.image = cropToBounds(image: image,width: 30,height: 30)
             }
         } catch {
 //            assertionFailure()
