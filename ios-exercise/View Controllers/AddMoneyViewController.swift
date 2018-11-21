@@ -19,6 +19,9 @@ class AddMoneyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "AddMoneyView"
+        self.amountLabel.accessibilityIdentifier = "amountLabel"
+//        self.view.increase
         self.decreaseButton.layer.cornerRadius = 4.0
         self.increaseButton.layer.cornerRadius = 4.0
         self.addMoneyButton.layer.cornerRadius = 4.0

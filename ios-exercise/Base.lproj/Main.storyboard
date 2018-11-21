@@ -340,7 +340,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvC-Ej-3af" userLabel="Map View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjO-Tk-2cV" userLabel="Content View">
@@ -448,11 +448,11 @@
                                                                     <action selector="editNote:" destination="Zkf-aw-UD4" eventType="touchUpInside" id="bBL-u3-K6L"/>
                                                                 </connections>
                                                             </button>
-                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a note..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLF-Wt-e8Y" userLabel="Note ">
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a note..." clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mLF-Wt-e8Y" userLabel="Note ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <connections>
                                                                     <action selector="editNote:" destination="Zkf-aw-UD4" eventType="touchUpInside" id="Vtx-ps-W45"/>
                                                                 </connections>
@@ -504,7 +504,7 @@
                                     <constraint firstItem="LvC-Ej-3af" firstAttribute="width" secondItem="kX2-oU-PBy" secondAttribute="width" id="7C3-Hn-waB"/>
                                     <constraint firstItem="LvC-Ej-3af" firstAttribute="leading" secondItem="kX2-oU-PBy" secondAttribute="leading" id="IpM-Oc-q37"/>
                                     <constraint firstAttribute="trailing" secondItem="jjO-Tk-2cV" secondAttribute="trailing" id="R2V-jr-fbu"/>
-                                    <constraint firstItem="LvC-Ej-3af" firstAttribute="height" secondItem="kX2-oU-PBy" secondAttribute="height" multiplier="0.3" id="aIz-y5-6dp"/>
+                                    <constraint firstItem="LvC-Ej-3af" firstAttribute="height" secondItem="kX2-oU-PBy" secondAttribute="height" multiplier="0.4" id="aIz-y5-6dp"/>
                                     <constraint firstAttribute="trailing" secondItem="LvC-Ej-3af" secondAttribute="trailing" id="dg4-Xn-m9o"/>
                                     <constraint firstItem="jjO-Tk-2cV" firstAttribute="centerX" secondItem="kX2-oU-PBy" secondAttribute="centerX" id="eSB-68-ww1"/>
                                     <constraint firstItem="LvC-Ej-3af" firstAttribute="top" secondItem="kX2-oU-PBy" secondAttribute="top" id="f2d-Bn-LSi"/>

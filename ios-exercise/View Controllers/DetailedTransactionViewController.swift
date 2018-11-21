@@ -29,14 +29,17 @@ class DetailedTransactionViewController: UIViewController {
     
     var transaction: Transaction!
     private let dataManager = DataManager(baseURL: API.AuthenticatedBaseURL)
+    var mapView: GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "DetailedTransactionView"
         self.setupView()
+        self.addMapView()
     }
     
     override func viewDidLayoutSubviews() {
-        self.addMapView()
+        self.mapView.frame = self.mapContainerView.frame
     }
     
     func setupView() {
@@ -70,13 +73,13 @@ class DetailedTransactionViewController: UIViewController {
         let longitude = self.transaction.merchant.address.longitude
         
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
-        let mapView = GMSMapView.map(withFrame: self.mapContainerView.frame, camera: camera)
+        self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        marker.map = mapView
+        marker.map = self.mapView
         
-        self.mapContainerView.addSubview(mapView)
+        self.mapContainerView.addSubview(self.mapView)
     }
     
     func buildCategoryLabel() {

@@ -10,6 +10,8 @@ class CardViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "CardView"
+        self.roundedCornerButton.accessibilityIdentifier = "AddMoneyButton"
         self.fetchBalanceData()
         roundedCornerButton.layer.cornerRadius = 4
     }

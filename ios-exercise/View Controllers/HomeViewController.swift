@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "HomeView"
+        self.transactionTableView.accessibilityIdentifier = "transactionView"
         self.setupTableView()
         self.fetchTransactionData()
         self.fetchBalanceData()
@@ -123,6 +125,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let transactions = self.transactionsDaily[indexPath.section].transactions
         let transaction = transactions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTableViewCell") as! TransactionTableViewCell
+        cell.accessibilityIdentifier = "myCell_\(indexPath.section)_\(indexPath.row)"
         cell.setTransaction(transaction: transaction)
         return cell
     }
