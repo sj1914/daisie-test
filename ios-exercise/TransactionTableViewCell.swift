@@ -9,17 +9,24 @@ class TransactionTableViewCell: UITableViewCell {
     func setTransaction(transaction: Transaction) {
         self.transactionCost.text = transaction.amount
         self.transactionLabel.text = transaction.description
-        
-        do {
-            if let imageURL = transaction.merchant.logoURL {
+        self.setTransactionImage(for: transaction)
+    }
+    
+    private func setTransactionImage(for transaction: Transaction) {
+        var image = UIImage(named: "placeholder")
+        if let imageURL = transaction.merchant.logoURL {
+            do {
                 let imageData = try Data(contentsOf: imageURL)
-                let image = UIImage(data: imageData)!
-                self.transactionImage.image = cropToBounds(image: image,width: 30,height: 30)
+                image = UIImage(data: imageData)
+            } catch {
+                print("Image data not successfully decoded.")
             }
-        } catch {
-//            assertionFailure()
         }
-        
+        let width = Double(self.transactionImage.frame.width)
+        let height = Double(self.transactionImage.frame.height)
+        if let image = image {
+            self.transactionImage.image = image.cropToBounds(width: width, height: height)
+        }
     }
 
 }

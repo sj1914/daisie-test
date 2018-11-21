@@ -47,10 +47,12 @@ class DetailedTransactionViewController: UIViewController {
             if let imageURL = self.transaction.merchant.logoURL {
                 let imageData = try Data(contentsOf: imageURL)
                 let image = UIImage(data: imageData)!
-                self.merchantLogo.image = cropToBounds(image: image, width: 50, height: 50)
+                let width = Double(self.merchantLogo.frame.width)
+                let height = Double(self.merchantLogo.frame.height)
+                self.merchantLogo.image = image.cropToBounds(width: width, height: height)
             }
         } catch {
-            
+            self.merchantLogo.image = UIImage(named: "placeholder")
         }
         self.buildCategoryLabel()
         self.noteField.text = self.transaction.notes
@@ -71,7 +73,7 @@ class DetailedTransactionViewController: UIViewController {
     }
     
     func getCategoryAssets(category: String) -> (icon: UIImage, name: String) {
-
+        
         switch category {
         case "eating_out":
             return (UIImage(named: "eatingOut")!, "Eating Out")

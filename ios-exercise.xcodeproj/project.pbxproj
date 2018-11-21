@@ -20,7 +20,7 @@
 		334C23CB21A1B92D00BC16C0 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C23CA21A1B92D00BC16C0 /* StringUtility.swift */; };
 		334C23CD21A1CF0C00BC16C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334C23CC21A1CF0C00BC16C0 /* User.swift */; };
 		33C0DD5C21A361AD00DB9262 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0DD5B21A361AD00DB9262 /* AddMoneyViewController.swift */; };
-		33C0DD5E21A4CAF500DB9262 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0DD5D21A4CAF500DB9262 /* Helpers.swift */; };
+		33C0DD5E21A4CAF500DB9262 /* UIImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C0DD5D21A4CAF500DB9262 /* UIImageUtility.swift */; };
 		6904CD46217DD0050009642A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD45217DD0050009642A /* AppDelegate.swift */; };
 		6904CD48217DD0050009642A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD47217DD0050009642A /* HomeViewController.swift */; };
 		6904CD4A217DD0050009642A /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD49217DD0050009642A /* CardViewController.swift */; };
@@ -63,7 +63,7 @@
 		334C23CA21A1B92D00BC16C0 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		334C23CC21A1CF0C00BC16C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33C0DD5B21A361AD00DB9262 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
-		33C0DD5D21A4CAF500DB9262 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		33C0DD5D21A4CAF500DB9262 /* UIImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtility.swift; sourceTree = "<group>"; };
 		6904CD42217DD0050009642A /* ios-exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-exercise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6904CD45217DD0050009642A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6904CD47217DD0050009642A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				334C23B421A0633300BC16C0 /* DoubleUtility.swift */,
 				334C23B721A063BF00BC16C0 /* DateUtility.swift */,
 				334C23CA21A1B92D00BC16C0 /* StringUtility.swift */,
-				33C0DD5D21A4CAF500DB9262 /* Helpers.swift */,
+				33C0DD5D21A4CAF500DB9262 /* UIImageUtility.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				334C23CB21A1B92D00BC16C0 /* StringUtility.swift in Sources */,
 				334C23BE21A1938A00BC16C0 /* Configuration.swift in Sources */,
 				334C23C021A19F6F00BC16C0 /* Merchant.swift in Sources */,
-				33C0DD5E21A4CAF500DB9262 /* Helpers.swift in Sources */,
+				33C0DD5E21A4CAF500DB9262 /* UIImageUtility.swift in Sources */,
 				334C23B821A063BF00BC16C0 /* DateUtility.swift in Sources */,
 				334C23BC21A078ED00BC16C0 /* DateManager.swift in Sources */,
 				334C23B521A0633300BC16C0 /* DoubleUtility.swift in Sources */,

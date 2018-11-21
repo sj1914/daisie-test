@@ -128,11 +128,19 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.detailedTransactionView = storyboard.instantiateViewController(withIdentifier: "DetailedTransactionView") as? DetailedTransactionViewController
-       
+
         let transactions = self.transactionsDaily[indexPath.section].transactions
         let transaction = transactions[indexPath.row]
+        self.pushDetailedTransactionView(for: transaction)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    private func pushDetailedTransactionView(for transaction: Transaction) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.detailedTransactionView = storyboard.instantiateViewController(withIdentifier: "DetailedTransactionView") as? DetailedTransactionViewController
+        
         self.detailedTransactionView.transaction = transaction
         self.detailedTransactionView.title = "\(transaction.created.formatToString()) \(transaction.time)"
         
@@ -140,7 +148,6 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
             navigator.pushViewController(self.detailedTransactionView, animated: true)
         }
         
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
