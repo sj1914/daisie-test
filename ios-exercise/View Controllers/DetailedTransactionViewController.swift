@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class DetailedTransactionViewController: UIViewController {
     
     @IBOutlet weak var merchantLogo: UIImageView!
     
+    @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var categoryLabel: UIView!
@@ -30,9 +32,11 @@ class DetailedTransactionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.dataManager.updateTransactionData(transaction: self.transaction)
         self.setupView()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.addMapView()
     }
     
     func setupView() {
@@ -58,6 +62,21 @@ class DetailedTransactionViewController: UIViewController {
         self.noteField.text = self.transaction.notes
         self.merchantLogo.layer.masksToBounds = true
         self.merchantLogo.layer.cornerRadius = 4.0
+    }
+    
+    func addMapView() {
+        
+        let latitude = self.transaction.merchant.address.latitude
+        let longitude = self.transaction.merchant.address.longitude
+        
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
+        let mapView = GMSMapView.map(withFrame: self.mapContainerView.frame, camera: camera)
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        marker.map = mapView
+        
+        self.mapContainerView.addSubview(mapView)
     }
     
     func buildCategoryLabel() {

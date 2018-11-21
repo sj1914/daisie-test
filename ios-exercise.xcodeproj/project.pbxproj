@@ -30,6 +30,7 @@
 		6904CD68217DD0060009642A /* ios_exerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904CD67217DD0060009642A /* ios_exerciseUITests.swift */; };
 		699A5C36217DE18900F5C4E5 /* ExerciseLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 699A5C35217DE18900F5C4E5 /* ExerciseLaunchScreen.storyboard */; };
 		69B92F5B217E28E6007A75C1 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B92F5A217E28E6007A75C1 /* TransactionTableViewCell.swift */; };
+		F40DDE419324FB035492950E /* libPods-ios-exercise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 135B284AD8AC9374663479F3 /* libPods-ios-exercise.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		135B284AD8AC9374663479F3 /* libPods-ios-exercise.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios-exercise.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		334C23B021A0448500BC16C0 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		334C23B221A0449300BC16C0 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		334C23B421A0633300BC16C0 /* DoubleUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleUtility.swift; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		6904CD69217DD0060009642A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		699A5C35217DE18900F5C4E5 /* ExerciseLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseLaunchScreen.storyboard; sourceTree = "<group>"; };
 		69B92F5A217E28E6007A75C1 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		8B4D284B9BC3B334592D6C3F /* Pods-ios-exercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-exercise.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-exercise/Pods-ios-exercise.release.xcconfig"; sourceTree = "<group>"; };
+		B3F06BC755F1D8C3CFF647EF /* Pods-ios-exercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-exercise.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-exercise/Pods-ios-exercise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40DDE419324FB035492950E /* libPods-ios-exercise.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +162,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		4DD13903DE7B326EF453E3A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				135B284AD8AC9374663479F3 /* libPods-ios-exercise.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6904CD39217DD0050009642A = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,8 @@
 				6904CD5B217DD0060009642A /* ios-exerciseTests */,
 				6904CD66217DD0060009642A /* ios-exerciseUITests */,
 				6904CD43217DD0050009642A /* Products */,
+				F087D400AF597A0B49AFFBB4 /* Pods */,
+				4DD13903DE7B326EF453E3A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,6 +228,15 @@
 			path = "ios-exerciseUITests";
 			sourceTree = "<group>";
 		};
+		F087D400AF597A0B49AFFBB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3F06BC755F1D8C3CFF647EF /* Pods-ios-exercise.debug.xcconfig */,
+				8B4D284B9BC3B334592D6C3F /* Pods-ios-exercise.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,9 +244,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6904CD6C217DD0060009642A /* Build configuration list for PBXNativeTarget "ios-exercise" */;
 			buildPhases = (
+				0A889BBC9EDA84C0C443261D /* [CP] Check Pods Manifest.lock */,
 				6904CD3E217DD0050009642A /* Sources */,
 				6904CD3F217DD0050009642A /* Frameworks */,
 				6904CD40217DD0050009642A /* Resources */,
+				FFF19273A3D32A657A2C6B0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,6 +365,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A889BBC9EDA84C0C443261D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios-exercise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF19273A3D32A657A2C6B0D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ios-exercise/Pods-ios-exercise-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios-exercise/Pods-ios-exercise-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6904CD3E217DD0050009642A /* Sources */ = {
@@ -525,6 +598,7 @@
 		};
 		6904CD6D217DD0060009642A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3F06BC755F1D8C3CFF647EF /* Pods-ios-exercise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -545,6 +619,7 @@
 		};
 		6904CD6E217DD0060009642A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B4D284B9BC3B334592D6C3F /* Pods-ios-exercise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
