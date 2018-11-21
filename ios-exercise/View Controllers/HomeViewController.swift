@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     private var transactionsDaily: [(date: Date, transactions: [Transaction])] = []
     
     private var detailedTransactionView: DetailedTransactionViewController!
+    
+    var dataDelegate: DataRefreshDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,10 @@ class HomeViewController: UIViewController {
         self.setupTableView()
         self.fetchTransactionData()
         self.fetchBalanceData()
+        
+        let cardNavController = self.tabBarController?.viewControllers?[1] as? UINavigationController
+        self.dataDelegate = cardNavController?.viewControllers[0] as? DataRefreshDelegate
+        
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     
@@ -43,6 +49,7 @@ class HomeViewController: UIViewController {
     @objc private func refreshData(_ sender: Any) {
         fetchTransactionData()
         fetchBalanceData()
+        self.dataDelegate?.refreshData()
     }
     
     private func groupTransactionsDaily(transactions: [Transaction]) -> [(Date, [Transaction])] {
@@ -114,6 +121,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 30))
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textColor = UIColor.black
+        label.backgroundColor = UIColor.white
         let date = self.transactionsDaily[section].date
         label.text = date.formatToString()
         view.addSubview(label)
@@ -153,4 +161,8 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
 
+}
+
+protocol DataRefreshDelegate {
+    func refreshData()
 }

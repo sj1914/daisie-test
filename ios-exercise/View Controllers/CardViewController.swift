@@ -1,6 +1,6 @@
 import UIKit
 
-class CardViewController: UIViewController {
+class CardViewController: UIViewController, DataRefreshDelegate {
 
     @IBOutlet weak var roundedCornerButton: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -22,6 +22,10 @@ class CardViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func refreshData() {
+        self.fetchBalanceData()
     }
     
     private func fetchBalanceData() {

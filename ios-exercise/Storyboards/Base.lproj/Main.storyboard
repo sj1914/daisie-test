@@ -39,7 +39,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3v-Zn-xvf" userLabel="Transaction View">
-                                <rect key="frame" x="16" y="103" width="343" height="501"/>
+                                <rect key="frame" x="16" y="83" width="343" height="501"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vwF-jV-mSK" userLabel="Transaction Table View">
                                         <rect key="frame" x="20" y="33" width="303" height="448"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="pZx-mH-IwW" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Ebb-c0-gxN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B3v-Zn-xvf" secondAttribute="trailing" id="Ffv-QF-cd7"/>
                             <constraint firstItem="B3v-Zn-xvf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Gps-nY-Nxj"/>
-                            <constraint firstItem="pZx-mH-IwW" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="-64" id="MkU-b2-85g"/>
+                            <constraint firstItem="pZx-mH-IwW" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="MkU-b2-85g"/>
                             <constraint firstItem="B3v-Zn-xvf" firstAttribute="top" secondItem="pZx-mH-IwW" secondAttribute="bottom" id="fxQ-uj-DlB"/>
                             <constraint firstItem="pZx-mH-IwW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="pSM-MA-L0C"/>
                             <constraint firstAttribute="bottomMargin" secondItem="B3v-Zn-xvf" secondAttribute="bottom" id="pu6-lx-P0Q"/>
