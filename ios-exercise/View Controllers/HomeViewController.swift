@@ -21,9 +21,11 @@ class HomeViewController: UIViewController {
         self.view.accessibilityIdentifier = "HomeView"
         self.transactionTableView.accessibilityIdentifier = "transactionView"
         self.setupTableView()
+        
         self.fetchTransactionData()
         self.fetchBalanceData()
         
+        //Make balance refresh on both pages, set data delegate
         let cardNavController = self.tabBarController?.viewControllers?[1] as? UINavigationController
         self.dataDelegate = cardNavController?.viewControllers[0] as? DataRefreshDelegate
         

@@ -65,6 +65,7 @@ class DetailedTransactionViewController: UIViewController {
         self.noteField.text = self.transaction.notes
         self.merchantLogo.layer.masksToBounds = true
         self.merchantLogo.layer.cornerRadius = 4.0
+        self.merchantLogo.layer.borderWidth = 1.0
     }
     
     func addMapView() {
@@ -72,7 +73,7 @@ class DetailedTransactionViewController: UIViewController {
         let latitude = self.transaction.merchant.address.latitude
         let longitude = self.transaction.merchant.address.longitude
         
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10.0)
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
         self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         let marker = GMSMarker()
